@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -9,6 +9,11 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    greendao {
+        schemaVersion 1  //数据库的版本
+        daoPackage 'com.example.xiaofu.mvp.model.db' // 一般为app包名+生成文件的文件夹名   文件生成的具体目录
+        targetGenDir 'src/main/java' //生成文件路径
     }
     buildTypes {
         release {
@@ -35,5 +40,6 @@ dependencies {
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     implementation 'com.github.bumptech.glide:glide:4.7.1'
     implementation 'com.android.support:design:27.1.1'
-    api 'com.squareup.okhttp3:okhttp:3.8.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+    implementation 'org.greenrobot:greendao:3.2.2' // add library
 }
